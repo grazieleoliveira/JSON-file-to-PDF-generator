@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório</title>
+
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <style>
+        table  {
+            width: 100%;
+        }
+
+        th {
+            text-align: left;
+        }
+    </style>
+</head>
+<body class="m-2 rounded-md border-2 border-red-800">
+    <div class="m-8">
+        <h1 class="text-3xl mb-8">Airline Safety</h1>
+        <table>
+            <thead>
+                <tr class="underline text-red-800">
+                    <th>airline</th>
+                    <th>incidents (2000-2014)</th>
+                    <th>fatal accidents (2000-2014)</th>
+                    <th>fatalities (2000-2014)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (airlines.length > 0) { %>
+                    <% airlines.forEach(airline => { %>
+                        <tr>
+                            <td><%= airline.airline %></td>
+                            <td><%= airline.incidents_00_14 %></td>
+                            <td><%= airline.fatal_accidents_00_14 %></td>
+                            <td><%= airline.fatalities_00_14 %></td>
+                        </tr>
+                    <% }); %>
+                <% } %>
+            </tbody>
+            <tfoot>
+                <tr class="font-semibold italic"><td colspan="2"><%= airlines.length %> airlines</td></tr>
+            </tfoot>
+        </table>
+    </div>
+</body>
+</html>
